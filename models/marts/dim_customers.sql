@@ -1,6 +1,7 @@
 {{
     config(
-        materialized='table'
+        materialized='table',
+        transient = false
     )
 }}
 -- Use CTEs for easy reading and debugging
