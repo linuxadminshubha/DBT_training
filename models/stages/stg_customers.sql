@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized='table',
+        transient = false
+    )
+}}
+
+-- Use CTEs for easy reading and debugging
 with customer as (
 select
         c_custkey as customer_id,

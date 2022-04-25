@@ -2,14 +2,31 @@ version: 2
 
 models:
   - name: stg_nations
+    description: list of all countries
     columns:
       - name: nation_id
+        description: Primary key of nations model
+        tests:
+          - unique
+          - not_null      
+      - name: region_id 
+        tests:
+          - relationships:
+              to: ref('stg_regions')
+              field: region_id
+
+  - name: stg_regions
+    description: list of all regions 
+    columns:
+      - name: region_id
+        description: '{{doc("primary_key")}}'
         tests:
           - unique
           - not_null
-  - name: stg_regions
-    columns:
-      - name: region_id
-        tests:
-          - unique
-          - not_null       
+      - name: name
+        tests:    
+          - accepted_values:
+              values: ['ASIA', 'AFRICA', 'AMERICA', 'India']
+              config:
+                store_failure: true
+     
