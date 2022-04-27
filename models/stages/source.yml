@@ -11,6 +11,7 @@ sources:
       - name: parts
       - name: suppliers 
       - name: partsupps
+      - name: lineitems
       - name: orders
         loaded_at_field: o_orderdate::timestamp
         freshness:
